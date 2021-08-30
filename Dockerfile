@@ -16,6 +16,6 @@ COPY ./src/* /var/hrobbin
 
 RUN chmod 777 /var/hrobbin
 
-EXPOSE 80 443
+EXPOSE 80
 
 ENTRYPOINT /bin/bash start.sh

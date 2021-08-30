@@ -1,0 +1,8 @@
+#creates a django project
+django-admin startproject django_blog .
+
+
+#creates an app called blog
+django-admin startapp blog
+
+python manage.py runserver 8080
