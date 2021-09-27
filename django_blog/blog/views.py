@@ -12,10 +12,11 @@ from blog.forms import ArticleForm
 
 class Home(View):
     def get(self, request):
-        return HttpResponse('Welcome to my Blog!')
+        return render(request, 'index.html')
 
-    def post(self, request):
-        return HttpResponse('[POST] Welcome to my blog!')
+class Blog(View):
+    def get(self, request):
+        return render(request, 'blog.html')
 
 class Article(View):
     def get(self, request):
