@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Articles</title>
+        <style>
+            input {
+                display: block;
+            }
+            textarea {
+                display: block;
+            }
+            ul>li {
+                margin-bottom: 50px;
+                background-color: bisque;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title">
+
+            <label for="category">Content: </label>
+            <input type="text" name="category" id="category">
+
+            <label for="author">Author: </label>
+            <input type="text" id="author" name="author">
+            
+            <textarea name="content" id="content" cols="50" rows="4"></textarea>
+            <input type="submit" value="Submit article">
+        </form>
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <p>Title: {{article.title}}</p>
+                    <p>Category: {{article.category}}</p>
+                    <p>Created by: {{article.author}}</p>
+                    <p>Posted at: {{article.created_at}}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
