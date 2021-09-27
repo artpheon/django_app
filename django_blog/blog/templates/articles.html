@@ -19,22 +19,13 @@
     <body>
         <form action="" method="post">
             {% csrf_token %}
-            <label for="title">Title: </label>
-            <input type="text" id="title" name="title">
-
-            <label for="category">Content: </label>
-            <input type="text" name="category" id="category">
-
-            <label for="author">Author: </label>
-            <input type="text" id="author" name="author">
-            
-            <textarea name="content" id="content" cols="50" rows="4"></textarea>
+            {{form}}
             <input type="submit" value="Submit article">
         </form>
         <ul>
             {% for article in articles %}
                 <li>
-                    <p>Title: {{article.title}}</p>
+                    <p>Title: <a href="http://127.0.0.1:8000/blog/articles/{{article.id}}">{{article.title}}</a></p>
                     <p>Category: {{article.category}}</p>
                     <p>Created by: {{article.author}}</p>
                     <p>Posted at: {{article.created_at}}</p>
